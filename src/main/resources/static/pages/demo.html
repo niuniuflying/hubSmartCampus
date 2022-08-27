@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+<!--  <script src="http://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>-->
+  <script src="../js/jquery.min.js"></script>
+  <style>
+    .header {
+      color: rgb(243, 152, 6);
+      width: 100%;
+      height: 200px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 20px;
+    }
+    .footer {
+      position: fixed;
+      right: 50px;
+      bottom: 50px;
+      width: 54px;
+      height: 54px;
+    }
+  </style>
+</head>
+<body style="background-color: black">
+<div class="header">我在顶部</div>
+<!-- 很多内容 -->
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!-- 很多内容 -->
+<img class="footer" id="gotoTop" src="https://i-1.lanrentuku.com/2020/9/6/ed14efe3-1efc-4320-b39a-b4fe650754b4.png" alt="">
+
+<script>
+  function gotoTop(minHeight){
+
+    // 定义点击返回顶部图标后向上滚动的动画
+    $("#gotoTop").click(
+            function(){$('html,body').animate({scrollTop:'0px'},'slow');
+            })
+
+    // 获取页面的最小高度，无传入值则默认为600像素
+    minHeight? minHeight = minHeight:minHeight = 600;
+
+    // 为窗口的scroll事件绑定处理函数
+    $(window).scroll(function(){
+
+      // 获取窗口的滚动条的垂直滚动距离
+      var s = $(window).scrollTop();
+
+      // 当窗口的滚动条的垂直距离大于页面的最小高度时，让返回顶部图标渐现，否则渐隐
+      if( s > minHeight){
+        $("#gotoTop").fadeIn(500);
+      }else{
+        $("#gotoTop").fadeOut(500);
+      }
+    });
+  }
+  gotoTop();
+</script>
+</body>
+</html>

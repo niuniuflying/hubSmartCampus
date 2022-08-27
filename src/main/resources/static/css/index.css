@@ -1,0 +1,65 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css');
+
+
+html, body {
+    font-family: "Open Sans", sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.button {
+    width: 120px;
+    height: 25px;
+    padding: 10px 25px;
+    margin: 0 12px 12px 0;
+    text-align: center;
+    color: white;
+    display: inline-block;
+    border-radius: 4px;
+    text-decoration: none;
+    overflow: hidden;
+    position: relative;
+    transition: all .2s ease-out 0s;
+}
+
+.button:hover > span {
+    top: -20px;
+    opacity: 0;
+}
+
+.button:hover > i {
+    opacity: 1;
+    font-size: 22px;
+    top: 50%;
+}
+
+.button-name,
+.button-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    transition: all .3s ease-out;
+    position: absolute;
+}
+
+.button-name {
+    font-size: 15px;
+    font-weight: 600;
+    opacity: 1;
+}
+
+.button-icon {
+    opacity: 0;
+}
+
+.button-color {
+    background-color: #107f9d;
+}

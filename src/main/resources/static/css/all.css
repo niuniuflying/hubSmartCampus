@@ -1,0 +1,26 @@
+    /*斑马线*/
+.el-table .warning-row{
+    background: #fdf2e6
+}
+
+/*走马灯*/
+.el-carousel__item h3 {
+    color: #515b67;
+    font-size: 14px;
+    opacity: 0.75;
+    line-height: 200px;
+    margin: 0;
+}
+
+.el-carousel__item:nth-child(2n) {
+    background-color: #5e6f75;
+}
+
+.el-carousel__item:nth-child(2n+1) {
+    background-color: #3b423a;
+}
+
+/*网站底部字体颜色*/
+.bottom{
+    color: #FFFFFF;
+}

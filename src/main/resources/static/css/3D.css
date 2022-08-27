@@ -1,0 +1,34 @@
+.item {
+    width: 120px;
+    height: 120px;
+}
+
+.one {
+    background: transparent url(../image/one.png) 0 0 no-repeat;
+}
+
+.two {
+    background: transparent url(../image/two.png) 0 0 no-repeat;
+}
+
+.three {
+    background: transparent url(../image/three.png) 0 0 no-repeat;
+}
+
+.four {
+    background: transparent url(../image/four.png) 0 0 no-repeat;
+}
+
+.item:hover {
+    animation: icon 1.5s steps(21) infinite;
+}
+
+@keyframes icon {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 -2688px;
+    }
+}

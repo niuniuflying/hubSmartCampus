@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智慧校园</title>
+    <script src="/static/js/jquery-3.6.0.js"></script>
+    <link href="../css/chat.css" rel="stylesheet" />
+    <script src="../js/chat.js"></script>
+</head>
+<body>
+<div id="app">
+    <div style="margin-top: 20px ; margin-left: 20px"  >
+        <el-button  onclick="javascript:history.back(-1);" icon="el-icon-back" circle></el-button>
+    </div>
+
+                <center>
+                <h2 id="onlineCount"></h2>
+                <p id="title">正在大厅聊天</p>
+                <div style="display: flex; width: 90%" >
+                    <div  id="chatBox" style="background-color: #ffffff; flex: 3;border: black 0px solid">
+<!--                        <div id="chat" style=" border-top-left-radius: 15px ; border-top-right-radius: 15px; background-color: #6090bb; height: 550px;padding: 15px;overflow: auto;">-->
+                        <div id="chat" style=" border-top-left-radius: 15px ; border-top-right-radius: 15px; background-image: linear-gradient(to right top, #a82d73, #8c2d74, #6e2d72, #512c6b, #342961, #273267, #163a6b, #00416d, #005981, #00718e, #008895, #0e9f96); height: 550px;padding: 15px;overflow: auto;">
+                        </div>
+                        <div id="inputDiv" style=" border-bottom-left-radius: 15px;border-bottom-right-radius: 15px; background-image: linear-gradient(to right top, #a82d73, #8c2d74, #6e2d72, #512c6b, #342961, #273267, #163a6b, #00416d, #005981, #00718e, #008895, #0e9f96);">
+
+
+                                <el-form ref="form" :model="user" :rules="rules" class="login-form" @submit.native.prevent>
+                                    <el-row>
+                                        <el-col :span="22">
+                                        <el-input v-model="input"  style=" left: 19px" name="" id="message" placeholder="请输入内容"></el-input>
+                                        </el-col>
+                                    <el-col :span="2">
+                                    </el-col>
+                                    <el-button style="border-radius: 15px;"  native-type="submit" id="sendBtn" round>⏎</el-button>
+                                    </el-row>
+                                </el-form>
+                            <br>
+
+                        </div>
+                    </div>
+                    <div id="userList" style=" border-radius: 15px ; background-image: linear-gradient(to right top, #a82d73, #8c2d74, #6e2d72, #512c6b, #342961, #273267, #163a6b, #00416d, #005981, #00718e, #008895, #0e9f96); flex: 1;border: black 0px solid ; height: 640px; overflow-y:auto;"></div>
+                </div>
+                </center>
+
+</div>
+</body>
+
+<script src="../js/vue.js"></script>
+<script src="../plugins/element-ui/lib/index.js"></script>
+<link rel="stylesheet" href="../plugins/element-ui/lib/theme-chalk/index.css">
+<script src="../js/axios-0.18.0.js"></script>
+
+<script>
+    new Vue({
+        el: "#app",
+        mounted(){
+
+
+        },
+        methods:{
+
+        },
+        data() {
+            return {
+                input: ''
+
+            }
+        }
+    })
+</script>
+</html>
