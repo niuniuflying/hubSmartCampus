@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>智慧校园-用户登录</title>
+<!--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">-->
+  <link rel="stylesheet" href="../css/bootstrap.css">
+
+  <style type="text/css">
+    body {
+      display:flex;
+      height: 969px;
+      align-items: center;
+      padding:40px 0;
+      /*background-color: #f5f5f5;*/
+    }
+    form {
+      display: block;
+      width: 100%;
+      max-width: 330px;
+      padding:15px;
+      margin: auto;
+    }
+    .btn-block {
+      width:300px;
+      margin:10px auto;
+    }
+    .form-control {
+      width:300px;
+      height: 50px;
+      font-size: 20px;
+      margin:0 auto -20px;
+      background-color: #fff;
+    }
+
+
+  </style>
+</head>
+<body class=text-center style=" background-image:
+linear-gradient(to right top, #a82d73, #8c2d74, #6e2d72, #512c6b, #342961, #273267, #163a6b, #00416d, #005981, #00718e, #008895, #0e9f96);">
+<!-- 点击登录之后，提交表单，验证该用户输入的账号密码是否正确 -->
+<form id = "app" >
+  <img src="../image/zhxyb.png" style="width: 80px">
+  <br><br>
+  <input class="form-control" v-model="username" type="text" placeholder="请输入用户名" >
+  <br>
+  <br>
+  <input class="form-control" v-model="password" type="password" placeholder="请输入密码">
+  <br>
+  <button class="btn btn-lg btn-primary btn-block" type="button" @click="login" >登录</button>
+  <button class="btn btn-lg btn-primary btn-block" type="button" @click="register">去注册</button>
+</form>
+<!--<script src="https://unpkg.com/axios/dist/axios.min.js"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+<script src="../js/vue.js"></script>
+<script src="../js/axios-0.18.0.js"></script>
+<script>
+  new Vue({
+    el:'#app',
+    data:{
+      username: '',
+      password: ''
+    },
+    methods:{
+      login:function () {
+        axios.post('/user/login', {
+          username: this.username,
+          password: this.password,
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'}   //跨域
+        }).then(function (dat) {
+          if (dat.data == '0')
+            alert("用户不存在")
+          else if (dat.data == '1')
+            alert("登录失败，账号或密码错误")
+          else if (dat.data == '2')
+                  //当前窗体跳转
+            window.location.href = '/pages/abc.html'
+        }).catch(function () {
+          console.log("传输失败")
+        })
+      },
+      register:function () {
+        window.location.href = "/pages/register.html"
+      }
+    }
+  })
+</script>
+
+</body>
+</html>
