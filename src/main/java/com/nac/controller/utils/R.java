@@ -14,6 +14,11 @@ public class R {
         this.flag=flag;
     }
 
+    public R(Boolean flag,Object data,String msg){
+        this.flag=flag;
+        this.data=data;
+        this.msg=msg;
+    }
     public R(Boolean flag,Object data){
         this.flag=flag;
         this.data=data;

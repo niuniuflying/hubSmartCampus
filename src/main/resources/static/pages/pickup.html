@@ -9,9 +9,16 @@
     <link href="../css/3D.css" rel="stylesheet"/>
     <script>
         function jump() {
-
             window.location.href = "abc.html";
-
+        }
+        function login() {
+            window.location.href = "login.html";
+        }
+    </script>
+    <script>
+        function out(){
+            localStorage.removeItem("user");
+            location.reload();
         }
     </script>
 </head>
@@ -23,6 +30,17 @@
 
 <!-- ng-app HTML引入插件-->
 <div id="app" ng-app="">
+    <!--悬浮窗-->
+    <div class="right_top">
+        <span style="font-style: italic " id="login-name" onclick="login()"></span>
+        <br>
+        <span style="font-style: italic" id="login-out" onclick="out()"></span>
+    </div>
+
+    <!--    回到顶部-->
+    <div class="right_bottom">
+        <a href="#" class="footer" id="gotoTop">︽</a>
+    </div>
 
     <template>
         <el-tabs v-model="activeName" @tab-click="handleClick">
@@ -107,6 +125,7 @@
                             <el-table-column prop="description" label="描述信息" align="center"></el-table-column>
 
                             <el-table-column prop="number" label="联系方式" align="center"></el-table-column>
+                            <el-table-column prop="createtime" label="创建时间" align="center"></el-table-column>
 
                             <el-table-column
                                     align="center"
@@ -499,5 +518,42 @@
     }, 1000)
 </script>
 <script src="../js/pickup.js"></script>
+<script>
+    if (JSON.parse(localStorage.getItem("user"))===null){
+        document.getElementById("login-name").innerHTML="未登录";
+    }else {
+        document.getElementById("login-name").innerHTML ="用户:"+JSON.parse(localStorage.getItem("user"));
+    }
 
+    if (JSON.parse(localStorage.getItem("user"))!=null){
+        document.getElementById("login-out").innerHTML="退出";
+    }
+</script>
+<script>
+    function gotoTop(minHeight){
+
+        // 定义点击返回顶部图标后向上滚动的动画
+        $("#gotoTop").click(
+            function(){$('html,body').animate({scrollTop:'0px'},'slow');
+            })
+
+        // 获取页面的最小高度，无传入值则默认为600像素
+        minHeight? minHeight = minHeight:minHeight = 600;
+
+        // 为窗口的scroll事件绑定处理函数
+        $(window).scroll(function(){
+
+            // 获取窗口的滚动条的垂直滚动距离
+            var s = $(window).scrollTop();
+
+            // 当窗口的滚动条的垂直距离大于页面的最小高度时，让返回顶部图标渐现，否则渐隐
+            if( s > minHeight){
+                $("#gotoTop").fadeIn(500);
+            }else{
+                $("#gotoTop").fadeOut(500);
+            }
+        });
+    }
+    gotoTop();
+</script>
 </html>

@@ -16,4 +16,6 @@ public class Pickup {
     private String number ;
 
     private String state ;
+
+    private String createtime;
 }

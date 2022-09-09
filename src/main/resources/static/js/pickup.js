@@ -70,6 +70,7 @@ var vue = new Vue({
             res: "",//条件查询模型
             time: "",
             description: "",
+            createtime: "",
             state: ""
         },
 

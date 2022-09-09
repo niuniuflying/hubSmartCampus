@@ -19,4 +19,6 @@ public class Goods {
     private String type ;
 
     private String status ;
+
+    private String createtime;
 }

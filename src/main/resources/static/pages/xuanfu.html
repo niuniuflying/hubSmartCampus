@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>DIV悬浮示例-纯CSS实现</title>
+
+
+  <style type="text/css">
+    /*设置了高度，可以上下滚动*/
+    body {
+      height: 1800px;
+      background:#dddddd;
+    }
+
+
+    /*div通用样式*/
+    div{
+
+    }
+
+
+    /*右上角*/
+    div.right_top{background: #ffffff;
+      color: #000000;
+      overflow: hidden;
+      z-index: 9999;
+      position: fixed;
+      padding:5px;
+      text-align:center;
+      width: 175px;
+      height: 22px;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      right: 10px;
+      top: 10px;
+    }
+
+/*
+    !*右下角*!
+    div.right_bottom{
+      right: 10px;
+      bottom: 10px;
+    }
+
+
+    !*屏幕中间*!
+    div.center_{
+      right: 45%;
+      top: 50%;
+    }
+
+
+    !*左上角*!
+    div.left_top{
+      left: 10px;
+      top: 10px;
+    }
+
+
+    !*左下角*!
+    div.left_bottom{
+      left: 10px;
+      bottom: 10px;
+    }*/
+  </style>
+
+
+</head>
+<body >
+<div class="right_top"> 我是右上角悬浮的div</div>
+<!--
+<div class="right_bottom"> 我是右下角悬浮的div</div>
+<div class="center_"> 我是屏幕中间悬浮的div</div>
+<div class="left_top"> 我是左上角悬浮的div</div>
+<div class="left_bottom"> 我是左下角悬浮的div</div>
+-->
+</body>
+</html>

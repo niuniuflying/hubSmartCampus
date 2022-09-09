@@ -44,6 +44,7 @@ var vue = new Vue({
             degree: "",
             description: "",
             type: "",
+            createtime: "",
             status: ""
         },
 
@@ -106,6 +107,9 @@ var vue = new Vue({
     created() {
         //调用查询全部数据的操作
         this.getAll();
+
+        // this.user = JSON.parse(localStorage.getItem("user"));
+        // console.log(this.user.username)
     },
 
     methods: {
